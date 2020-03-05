@@ -84,6 +84,8 @@ public class OrderFrame extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -98,6 +100,7 @@ public class OrderFrame extends javax.swing.JFrame {
         });
 
         jComboBox2.setModel(model);
+        jComboBox2.setSelectedItem("Size: ");
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
