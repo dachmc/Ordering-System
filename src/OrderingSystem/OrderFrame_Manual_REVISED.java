@@ -35,6 +35,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         String[] size = {"Size: ", "Solo", "Grande", "Giant", "Super Giant" };
         JLabel potatoImage  = new JLabel("");
         JLabel potpots = new JLabel("");
+        JLabel menupots = new JLabel("");
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Potato Order");
@@ -49,13 +50,13 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Add Order");
 
-        jButton2.setText("jButton2");
-        
-        potatoImage.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\potatogBorder.png"));
+        jButton2.setText("Finish Order");
+        menupots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\MENUPOTS.jpg"));
+        potatoImage.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\potatogBorder.png")); //unused
         potpots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\POTS.jpg"));
-        imagePanel.add(potatoImage, "1");
+        imagePanel.add(menupots, "1");
         imagePanel.add(potpots, "2");
         cardLayout.show(imagePanel, "1");
 
@@ -97,23 +98,23 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
         PriceTag.setText("Price: ");
 
-        jButton5.setText("jButton5");
+        jButton5.setText("Back");
 
-        jButton4.setText("jButton4");
+        jButton4.setText("Next");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(menu));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(size));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(size));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(menu));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
