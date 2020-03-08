@@ -4,7 +4,12 @@ package OrderingSystem;
 import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
+/*To do:
+    Resize all related images in /Libraries/Pictures
+    Fix components sizes
+    Make components resize in relation to frame size
+    Add events
+*/
 
 public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
