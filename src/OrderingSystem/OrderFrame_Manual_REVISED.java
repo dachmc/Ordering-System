@@ -2,7 +2,9 @@
 package OrderingSystem;
 
 import java.awt.*;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 
 public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
@@ -22,16 +24,18 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         centerPanel = new javax.swing.JPanel();
-        mainImageBox = new javax.swing.JPanel();
+        imagePanel = new javax.swing.JPanel(cardLayout);
         bottomPanelInsideCenterPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        PriceTag = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         String[] menu = {"Menu: ", "Potpots", "French Fries", "Hash Browns"};
         String[] size = {"Size: ", "Solo", "Grande", "Giant", "Super Giant" };
-
+        JLabel potatoImage  = new JLabel("");
+        JLabel potpots = new JLabel("");
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Potato Order");
         setSize(new java.awt.Dimension(420, 420));
@@ -48,6 +52,12 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
+        
+        potatoImage.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\potatogBorder.png"));
+        potpots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\POTS.jpg"));
+        imagePanel.add(potatoImage, "1");
+        imagePanel.add(potpots, "2");
+        cardLayout.show(imagePanel, "1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(rightPanel);
         rightPanel.setLayout(jPanel1Layout);
@@ -67,8 +77,9 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2))
@@ -78,13 +89,13 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
         centerPanel.setLayout(new javax.swing.BoxLayout(centerPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        mainImageBox.setPreferredSize(new java.awt.Dimension(275, 250));
-        mainImageBox.setLayout(new java.awt.CardLayout());
-        centerPanel.add(mainImageBox);
+        imagePanel.setPreferredSize(new java.awt.Dimension(275, 250));
+        imagePanel.setLayout(new java.awt.CardLayout());
+        centerPanel.add(imagePanel);
 
         bottomPanelInsideCenterPanel.setPreferredSize(new java.awt.Dimension(0, 60));
 
-        jLabel1.setText("jLabel1");
+        PriceTag.setText("Price: ");
 
         jButton5.setText("jButton5");
 
@@ -118,7 +129,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PriceTag, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -132,7 +143,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
-                    .addComponent(jLabel1)
+                    .addComponent(PriceTag)
                     .addComponent(jButton4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -150,15 +161,15 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 445, Short.MAX_VALUE)
+            .addGap(0, 533, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 317, Short.MAX_VALUE)
+            .addGap(0, 397, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE))
         );
         setLocationRelativeTo(null); //center trick!
         pack();
@@ -218,10 +229,10 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel PriceTag;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JPanel centerPanel;
-    private javax.swing.JPanel mainImageBox;
+    private javax.swing.JPanel imagePanel;
     private javax.swing.JPanel bottomPanelInsideCenterPanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
