@@ -1,41 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package OrderingSystem;
 
-/**
- *
- * @author client
- */
+import java.awt.*;
+import javax.swing.*;
+
 public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
-    /**
-     * Creates new form OrderFrame
-     */
+
     public OrderFrame_Manual_REVISED() {
         initComponents();
     }
 
     @SuppressWarnings("unchecked")
-                            
+                      
     private void initComponents() {
-
+        CardLayout cardLayout = new CardLayout();
         mainPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        rightPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        centerPanel = new javax.swing.JPanel();
+        mainImageBox = new javax.swing.JPanel();
+        bottomPanelInsideCenterPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        String[] menu = {"Menu: ", "Potpots", "French Fries", "Hash Browns"};
+        String[] size = {"Size: ", "Solo", "Grande", "Giant", "Super Giant" };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Potato Order");
@@ -44,7 +39,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         mainPanel.setName(""); // NOI18N
         mainPanel.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(125, 100));
+        rightPanel.setPreferredSize(new java.awt.Dimension(125, 100));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -54,8 +49,8 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
         jButton2.setText("jButton2");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(rightPanel);
+        rightPanel.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -79,15 +74,15 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
                 .addComponent(jButton2))
         );
 
-        mainPanel.add(jPanel1, java.awt.BorderLayout.EAST);
+        mainPanel.add(rightPanel, java.awt.BorderLayout.EAST);
 
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
+        centerPanel.setLayout(new javax.swing.BoxLayout(centerPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel3.setPreferredSize(new java.awt.Dimension(275, 250));
-        jPanel3.setLayout(new java.awt.CardLayout());
-        jPanel2.add(jPanel3);
+        mainImageBox.setPreferredSize(new java.awt.Dimension(275, 250));
+        mainImageBox.setLayout(new java.awt.CardLayout());
+        centerPanel.add(mainImageBox);
 
-        jPanel4.setPreferredSize(new java.awt.Dimension(0, 60));
+        bottomPanelInsideCenterPanel.setPreferredSize(new java.awt.Dimension(0, 60));
 
         jLabel1.setText("jLabel1");
 
@@ -100,28 +95,34 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(menu));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(size));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(bottomPanelInsideCenterPanel);
+        bottomPanelInsideCenterPanel.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4))
         );
@@ -135,16 +136,15 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel2.add(jPanel4);
+        centerPanel.add(bottomPanelInsideCenterPanel);
 
-        mainPanel.add(jPanel2, java.awt.BorderLayout.CENTER);
+        mainPanel.add(centerPanel, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,7 +160,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
         );
-
+        setLocationRelativeTo(null); //center trick!
         pack();
     }// </editor-fold>                        
 
@@ -169,6 +169,10 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     }                                        
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
     }                                          
 
@@ -189,20 +193,20 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OrderFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderFrame_Manual_REVISED.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OrderFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderFrame_Manual_REVISED.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OrderFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderFrame_Manual_REVISED.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OrderFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderFrame_Manual_REVISED.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new OrderFrame().setVisible(true);
+                new OrderFrame_Manual_REVISED().setVisible(true);
             }
         });
     }
@@ -212,13 +216,13 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel rightPanel;
+    private javax.swing.JPanel centerPanel;
+    private javax.swing.JPanel mainImageBox;
+    private javax.swing.JPanel bottomPanelInsideCenterPanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel mainPanel;
