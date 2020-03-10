@@ -41,6 +41,10 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         JLabel potatoImage  = new JLabel("");
         JLabel potpots = new JLabel("");
         JLabel menupots = new JLabel("");
+        JLabel smalpots = new JLabel("");
+        JLabel grandepots = new JLabel("");
+        JLabel giantpot = new JLabel("");
+        JLabel supgiantpot = new JLabel("");
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Potato Order");
@@ -61,6 +65,10 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         menupots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\MENUPOTS.jpg"));
         potatoImage.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\potatogBorder.png")); //unused
         potpots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\POTS.jpg"));
+        smalpots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\smalpot1.png"));
+        grandepots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\grandepot1.png"));
+        giantpot.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\giantpot1.png"));
+        supgiantpot.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\supgiantpot1.png"));
         imagePanel.add(menupots, "1");
         imagePanel.add(potpots, "2");
         cardLayout.show(imagePanel, "1");
