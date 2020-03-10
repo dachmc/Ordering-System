@@ -59,6 +59,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         JLabel giantfries = new JLabel("");
         JLabel superfries = new JLabel("");
         JLabel hashbrown = new JLabel("");
+        JLabel cheesebacpots = new JLabel("");
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Potato Order");
@@ -76,20 +77,20 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         jButton1.setText("Add Order");
         jButton2.setText("Finish Order");
         
-        
+        potpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\POTS.jpg")); //unused
+        cheesebacpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\cheesebacpots1.1.png"));
         menupots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\MENUPOTS.jpg"));
         potpotsmenu.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\potpotsmenu1.png")); 
         hashbrown.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\hashbrown1.png"));
-        potpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\POTS.jpg")); //unused
-        smalpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\smalpot1.png"));
-        grandepots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\grandepot1.png"));
-        giantpot.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\giantpot1.png"));
-        supgiantpot.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\supgiantpot1.png"));
+        smalpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\solopot1.1.png"));
+        grandepots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\grandepot1.1.png"));
+        giantpot.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\giantpot1.1.png"));
+        supgiantpot.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\supgiantpot1.1.png"));
         frenchmenu.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\frenchmenu1.png"));
-        solofries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\solofries1.png"));
-        grandfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\grandfries1.png"));
-        giantfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\giantfries1.png"));
-        superfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\supgiantfries1.png"));
+        solofries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\solofries1.1.png"));
+        grandfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\grandfries1.1.png"));
+        giantfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\giantfries1.1.png"));
+        superfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\supgiantfries1.1.png"));
         
         imagePanel.add(menupots, "1");
         imagePanel.add(potpotsmenu, "2");
@@ -99,10 +100,11 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         imagePanel.add(grandepots, "6");
         imagePanel.add(giantpot, "7");
         imagePanel.add(supgiantpot, "8");
-        imagePanel.add(solofries, "9");
-        imagePanel.add(grandfries, "10");
-        imagePanel.add(giantfries, "11");
-        imagePanel.add(superfries, "12");
+        imagePanel.add(cheesebacpots, "9");
+        imagePanel.add(solofries, "10");
+        imagePanel.add(grandfries, "11");
+        imagePanel.add(giantfries, "12");
+        imagePanel.add(superfries, "13");
         
         cardLayout.show(imagePanel, "1");
 
@@ -224,11 +226,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-    }                                        
-
-    private void comboSizeActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
+    }                                                                 
 
     private void comboMenuActionPerformed(java.awt.event.ActionEvent evt) {
         if(comboMenu.getSelectedItem().toString().equals("Menu: ")) {
@@ -248,7 +246,37 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
             comboSize.setModel(model2);
         }
         
-    }                                          
+    }
+    private void comboSizeActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Solo")) {
+            cardLayout.show(imagePanel, "5");
+        }
+        if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Grande")) {
+            cardLayout.show(imagePanel, "6");
+        }
+        if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Giant")) {
+            cardLayout.show(imagePanel, "7");
+        }
+        if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Super Giant")) {
+            cardLayout.show(imagePanel, "8");
+        }
+        if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Cheesy Bacon")) {
+            cardLayout.show(imagePanel, "9");
+        }
+        //FRENCH FRIES!!!
+        if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Solo")) {
+            cardLayout.show(imagePanel, "10");
+        }
+        if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Grande")) {
+            cardLayout.show(imagePanel, "11");
+        }
+        if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Giant")) {
+            cardLayout.show(imagePanel, "12");
+        }
+        if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Super Giant")) {
+            cardLayout.show(imagePanel, "13");
+        }
+    }                 
 
     /**
      * @param args the command line arguments
