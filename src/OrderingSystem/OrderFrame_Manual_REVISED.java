@@ -5,7 +5,6 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 /*To do:
-    Resize all related images in /Libraries/Pictures
     Fix components sizes
     Make components resize in relation to frame size
     Add events
@@ -19,9 +18,9 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-                      
+                     
     private void initComponents() {
-        CardLayout cardLayout = new CardLayout();
+        cardLayout = new java.awt.CardLayout(); 
         mainPanel = new javax.swing.JPanel();
         rightPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -34,17 +33,32 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         PriceTag = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        comboSize = new javax.swing.JComboBox<>();
+        comboMenu = new javax.swing.JComboBox<>();
+        
         String[] menu = {"Menu: ", "Potpots", "French Fries", "Hash Browns"};
         String[] size = {"Size: ", "Solo", "Grande", "Giant", "Super Giant" };
-        JLabel potatoImage  = new JLabel("");
+        String[] sizePot = {"Size: ", "Solo", "Grande", "Giant", "Super Giant", "Cheesy Bacon" };
+        String[] sizeHash = {"Size: "};
+        
+        model = new javax.swing.DefaultComboBoxModel(size);
+        model1 = new javax.swing.DefaultComboBoxModel(sizePot);
+        model2 = new javax.swing.DefaultComboBoxModel(sizeHash);
+        
+        JLabel potatoBackground  = new JLabel("");
         JLabel potpots = new JLabel("");
         JLabel menupots = new JLabel("");
         JLabel smalpots = new JLabel("");
         JLabel grandepots = new JLabel("");
         JLabel giantpot = new JLabel("");
         JLabel supgiantpot = new JLabel("");
+        JLabel potpotsmenu = new JLabel("");
+        JLabel frenchmenu = new JLabel("");
+        JLabel solofries = new JLabel("");
+        JLabel grandfries = new JLabel("");
+        JLabel giantfries = new JLabel("");
+        JLabel superfries = new JLabel("");
+        JLabel hashbrown = new JLabel("");
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Potato Order");
@@ -60,17 +74,36 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("Add Order");
-
         jButton2.setText("Finish Order");
-        menupots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\MENUPOTS.jpg"));
-        potatoImage.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\potatogBorder.png")); //unused
-        potpots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\POTS.jpg"));
-        smalpots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\smalpot1.png"));
-        grandepots.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\grandepot1.png"));
-        giantpot.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\giantpot1.png"));
-        supgiantpot.setIcon(new ImageIcon("C:\\Users\\client\\Pictures\\supgiantpot1.png"));
+        
+        
+        menupots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\MENUPOTS.jpg"));
+        potpotsmenu.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\potpotsmenu1.png")); 
+        hashbrown.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\hashbrown1.png"));
+        potpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\POTS.jpg")); //unused
+        smalpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\smalpot1.png"));
+        grandepots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\grandepot1.png"));
+        giantpot.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\giantpot1.png"));
+        supgiantpot.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\supgiantpot1.png"));
+        frenchmenu.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\frenchmenu1.png"));
+        solofries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\solofries1.png"));
+        grandfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\grandfries1.png"));
+        giantfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\giantfries1.png"));
+        superfries.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\supgiantfries1.png"));
+        
         imagePanel.add(menupots, "1");
-        imagePanel.add(potpots, "2");
+        imagePanel.add(potpotsmenu, "2");
+        imagePanel.add(frenchmenu, "3");
+        imagePanel.add(hashbrown, "4");
+        imagePanel.add(smalpots, "5");
+        imagePanel.add(grandepots, "6");
+        imagePanel.add(giantpot, "7");
+        imagePanel.add(supgiantpot, "8");
+        imagePanel.add(solofries, "9");
+        imagePanel.add(grandfries, "10");
+        imagePanel.add(giantfries, "11");
+        imagePanel.add(superfries, "12");
+        
         cardLayout.show(imagePanel, "1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(rightPanel);
@@ -104,7 +137,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         centerPanel.setLayout(new javax.swing.BoxLayout(centerPanel, javax.swing.BoxLayout.Y_AXIS));
 
         imagePanel.setPreferredSize(new java.awt.Dimension(275, 250));
-        imagePanel.setLayout(new java.awt.CardLayout());
+        //imagePanel.setLayout(new java.awt.CardLayout()); error!
         centerPanel.add(imagePanel);
 
         bottomPanelInsideCenterPanel.setPreferredSize(new java.awt.Dimension(0, 60));
@@ -120,17 +153,17 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(size));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(size));
+        comboSize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                comboSizeActionPerformed(evt);
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(menu));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        comboMenu.setModel(new javax.swing.DefaultComboBoxModel<>(menu));
+        comboMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                comboMenuActionPerformed(evt);
             }
         });
 
@@ -141,13 +174,13 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(PriceTag, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(comboSize, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4))
         );
@@ -161,9 +194,9 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -193,12 +226,28 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                        
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void comboSizeActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
     }                                          
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
+    private void comboMenuActionPerformed(java.awt.event.ActionEvent evt) {
+        if(comboMenu.getSelectedItem().toString().equals("Menu: ")) {
+            cardLayout.show(imagePanel, "1");
+            comboSize.setModel(model2);
+        }
+        if(comboMenu.getSelectedItem().toString().equals("Potpots")) {
+            cardLayout.show(imagePanel, "2");
+            comboSize.setModel(model1);
+        }
+        if(comboMenu.getSelectedItem().toString().equals("French Fries")) {
+            cardLayout.show(imagePanel, "3");
+            comboSize.setModel(model);
+        }
+        if(comboMenu.getSelectedItem().toString().equals("Hash Browns")) {
+            cardLayout.show(imagePanel, "4");
+            comboSize.setModel(model2);
+        }
+        
     }                                          
 
     /**
@@ -241,8 +290,8 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> comboSize;
+    private javax.swing.JComboBox<String> comboMenu;
     private javax.swing.JLabel PriceTag;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JPanel centerPanel;
@@ -251,5 +300,9 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel mainPanel;
+    private java.awt.CardLayout cardLayout;
+    private javax.swing.DefaultComboBoxModel<String> model;
+    private javax.swing.DefaultComboBoxModel<String> model1;
+    private javax.swing.DefaultComboBoxModel<String> model2;
     // End of variables declaration                   
 }
