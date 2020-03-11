@@ -106,6 +106,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         imagePanel.add(giantfries, "12");
         imagePanel.add(superfries, "13");
         
+        
         cardLayout.show(imagePanel, "1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(rightPanel);
@@ -146,9 +147,14 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
         PriceTag.setText("Price: ");
 
-        jButton5.setText("Back");
+        jButton5.setText("\u22b2Back");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Next");
+        jButton4.setText("Next\u22b3");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -224,9 +230,20 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        CardLayout cl = (CardLayout) imagePanel.getLayout();
+         //should proceed to the next card... not working
+         cl.previous(imagePanel);
+        imagePanel.revalidate();
+        imagePanel.repaint();
+    }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                                                 
+        CardLayout cl = (CardLayout) imagePanel.getLayout();
+        cl.next(imagePanel);
+         //should proceed to the previous card... not working
+        imagePanel.revalidate();
+        imagePanel.repaint();
+    }
 
     private void comboMenuActionPerformed(java.awt.event.ActionEvent evt) {
         if(comboMenu.getSelectedItem().toString().equals("Menu: ")) {
@@ -236,10 +253,12 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         if(comboMenu.getSelectedItem().toString().equals("Potpots")) {
             cardLayout.show(imagePanel, "2");
             comboSize.setModel(model1);
+            comboSize.setSelectedItem("Size: ");
         }
         if(comboMenu.getSelectedItem().toString().equals("French Fries")) {
             cardLayout.show(imagePanel, "3");
             comboSize.setModel(model);
+            comboSize.setSelectedItem("Size: ");
         }
         if(comboMenu.getSelectedItem().toString().equals("Hash Browns")) {
             cardLayout.show(imagePanel, "4");
@@ -247,7 +266,10 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         }
         
     }
-    private void comboSizeActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void comboSizeActionPerformed(java.awt.event.ActionEvent evt) {
+        if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Size: ")) {
+            cardLayout.show(imagePanel, "2");
+        }
         if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Solo")) {
             cardLayout.show(imagePanel, "5");
         }
@@ -264,6 +286,9 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
             cardLayout.show(imagePanel, "9");
         }
         //FRENCH FRIES!!!
+        if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Size: ")) {
+            cardLayout.show(imagePanel, "3");
+        }
         if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Solo")) {
             cardLayout.show(imagePanel, "10");
         }
