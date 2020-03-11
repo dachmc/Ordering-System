@@ -31,8 +31,8 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         imagePanel = new javax.swing.JPanel(cardLayout);
         bottomPanelInsideCenterPanel = new javax.swing.JPanel();
         PriceTag = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
         comboSize = new javax.swing.JComboBox<>();
         comboMenu = new javax.swing.JComboBox<>();
         cardSelector = 0;
@@ -148,17 +148,17 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
         PriceTag.setText("Price: ");
 
-        jButton5.setText("\u22b2Back");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setText("\u22b2Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Next\u22b3");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        nextButton.setText("Next\u22b3");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                nextButtonActionPerformed(evt);
             }
         });
 
@@ -187,20 +187,20 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(PriceTag, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)
+                        .addComponent(backButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboSize, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4))
+                .addComponent(nextButton))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
+                    .addComponent(backButton)
                     .addComponent(PriceTag)
-                    .addComponent(jButton4))
+                    .addComponent(nextButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(comboMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,15 +230,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         setLocationRelativeTo(null); //center trick!
         pack();
     }// </editor-fold>                        
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
-        CardLayout cl = (CardLayout) imagePanel.getLayout();
-         //back button
-         cl.previous(imagePanel);
-        imagePanel.revalidate();
-        imagePanel.repaint();
-        cardSelector--;
-        
+    public static void comboSelector(javax.swing.JComboBox<String> comboMenu, javax.swing.JComboBox<String> comboSize, int cardSelector) {
         if(cardSelector == -1) {
             cardSelector = 12;
         }
@@ -304,10 +296,20 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
             cardSelector = 0;
         }
         if(cardSelector == 0) {
-            comboSize.setModel(model2);
-        }
+            comboMenu.setSelectedItem("Menu: ");
+        } 
     }
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        CardLayout cl = (CardLayout) imagePanel.getLayout();
+         //back button
+         cl.previous(imagePanel);
+        imagePanel.revalidate();
+        imagePanel.repaint();
+        cardSelector--;
+      
+        comboSelector(comboMenu, comboSize, cardSelector);
+    }
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {                                         
         CardLayout cl = (CardLayout) imagePanel.getLayout();
         //next button
         cl.next(imagePanel); 
@@ -315,73 +317,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         imagePanel.repaint();
         cardSelector++;
         
-        if(cardSelector == -1) {
-            cardSelector = 12;
-        }
-        
-        if(cardSelector == 1) {
-            comboMenu.setSelectedItem("Potpots");
-            //comboSize.setModel(model2);
-        }
-        if(cardSelector == 2) {
-            comboMenu.setSelectedItem("French Fries");
-            //comboSize.setModel(model2);
-        }
-        if(cardSelector == 3) {
-            comboMenu.setSelectedItem("Hash Browns");
-            //comboSize.setModel(model2);
-        }
-        if(cardSelector == 4) {
-            comboMenu.setSelectedItem("Potpots");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Solo");
-        }
-        if(cardSelector == 5) {
-            comboMenu.setSelectedItem("Potpots");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Grande");
-        }
-        if(cardSelector == 6) {
-            comboMenu.setSelectedItem("Potpots");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Giant");
-        }
-        if(cardSelector == 7) {
-            comboMenu.setSelectedItem("Potpots");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Super Giant");
-        }
-        if(cardSelector == 8) {
-            comboMenu.setSelectedItem("Potpots");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Cheesy Bacon");
-        }
-        if(cardSelector == 9) {
-            comboMenu.setSelectedItem("French Fries");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Solo");
-        }
-        if(cardSelector == 10) {
-            comboMenu.setSelectedItem("French Fries");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Grande");
-        }
-        if(cardSelector == 11) {
-            comboMenu.setSelectedItem("French Fries");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Giant");
-        }
-        if(cardSelector == 12) {
-            comboMenu.setSelectedItem("French Fries");
-            //comboSize.setModel(model1);
-            comboSize.setSelectedItem("Super Giant");
-        }
-        if(cardSelector == 13) {
-            cardSelector = 0;
-        }
-        if(cardSelector == 0) {
-            comboSize.setModel(model2);
-        }
+        comboSelector(comboMenu, comboSize, cardSelector);
     }
 
     private void comboMenuActionPerformed(java.awt.event.ActionEvent evt) {
@@ -495,8 +431,8 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton nextButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> comboSize;
     private javax.swing.JComboBox<String> comboMenu;
     private javax.swing.JLabel PriceTag;
