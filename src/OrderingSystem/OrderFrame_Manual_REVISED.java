@@ -4,12 +4,14 @@ package OrderingSystem;
 import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-/*To do:
-    Fix components sizes
-    Make components resize in relation to frame size
-    Add events
-*/
+/*  Add quantity displayer
+*   Replace text area with jpanel in white background
 
+*   for every press of button add order: get the 2 combo box selected item 
+*   and the number listed on the quantity displayer
+*   then merged them in a label inside a single instance of small panel 'a' 
+*   together with a button that removes the parent panel 'a'
+*/
 public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
 
@@ -24,9 +26,9 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
         rightPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        myOrders = new javax.swing.JTextArea();
+        addOrderButton = new javax.swing.JButton();
+        finishOrderButton = new javax.swing.JButton();
         centerPanel = new javax.swing.JPanel();
         imagePanel = new javax.swing.JPanel(cardLayout);
         bottomPanelInsideCenterPanel = new javax.swing.JPanel();
@@ -71,12 +73,12 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
         rightPanel.setPreferredSize(new java.awt.Dimension(125, 100));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        myOrders.setColumns(20);
+        myOrders.setRows(5);
+        jScrollPane1.setViewportView(myOrders);
 
-        jButton1.setText("Add Order");
-        jButton2.setText("Finish Order");
+        addOrderButton.setText("Add Order");
+        finishOrderButton.setText("Finish Order");
         
         potpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\POTS.jpg")); //unused
         cheesebacpots.setIcon(new ImageIcon("src\\OrderingSystem\\Images\\cheesebacpots1.1.png"));
@@ -117,8 +119,8 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(finishOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -131,9 +133,9 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2))
+                .addComponent(finishOrderButton))
         );
 
         mainPanel.add(rightPanel, java.awt.BorderLayout.EAST);
@@ -429,8 +431,8 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton addOrderButton;
+    private javax.swing.JButton finishOrderButton;
     private javax.swing.JButton nextButton;
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> comboSize;
@@ -441,7 +443,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     private javax.swing.JPanel imagePanel;
     private javax.swing.JPanel bottomPanelInsideCenterPanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea myOrders;
     private javax.swing.JPanel mainPanel;
     private java.awt.CardLayout cardLayout;
     private javax.swing.DefaultComboBoxModel<String> model;
