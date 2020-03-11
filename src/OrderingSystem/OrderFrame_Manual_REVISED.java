@@ -35,6 +35,7 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         comboSize = new javax.swing.JComboBox<>();
         comboMenu = new javax.swing.JComboBox<>();
+        cardSelector = 0;
         
         String[] menu = {"Menu: ", "Potpots", "French Fries", "Hash Browns"};
         String[] size = {"Size: ", "Solo", "Grande", "Giant", "Super Giant" };
@@ -232,74 +233,227 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
         CardLayout cl = (CardLayout) imagePanel.getLayout();
-         //should proceed to the next card... not working
+         //back button
          cl.previous(imagePanel);
         imagePanel.revalidate();
         imagePanel.repaint();
+        cardSelector--;
+        
+        if(cardSelector == -1) {
+            cardSelector = 12;
+        }
+        
+        if(cardSelector == 1) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model2);
+        }
+        if(cardSelector == 2) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model2);
+        }
+        if(cardSelector == 3) {
+            comboMenu.setSelectedItem("Hash Browns");
+            //comboSize.setModel(model2);
+        }
+        if(cardSelector == 4) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Solo");
+        }
+        if(cardSelector == 5) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Grande");
+        }
+        if(cardSelector == 6) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Giant");
+        }
+        if(cardSelector == 7) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Super Giant");
+        }
+        if(cardSelector == 8) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Cheesy Bacon");
+        }
+        if(cardSelector == 9) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Solo");
+        }
+        if(cardSelector == 10) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Grande");
+        }
+        if(cardSelector == 11) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Giant");
+        }
+        if(cardSelector == 12) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Super Giant");
+        }
+        if(cardSelector == 13) {
+            cardSelector = 0;
+        }
+        if(cardSelector == 0) {
+            comboSize.setModel(model2);
+        }
     }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         CardLayout cl = (CardLayout) imagePanel.getLayout();
-        cl.next(imagePanel);
-         //should proceed to the previous card... not working
+        //next button
+        cl.next(imagePanel); 
         imagePanel.revalidate();
         imagePanel.repaint();
+        cardSelector++;
+        
+        if(cardSelector == -1) {
+            cardSelector = 12;
+        }
+        
+        if(cardSelector == 1) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model2);
+        }
+        if(cardSelector == 2) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model2);
+        }
+        if(cardSelector == 3) {
+            comboMenu.setSelectedItem("Hash Browns");
+            //comboSize.setModel(model2);
+        }
+        if(cardSelector == 4) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Solo");
+        }
+        if(cardSelector == 5) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Grande");
+        }
+        if(cardSelector == 6) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Giant");
+        }
+        if(cardSelector == 7) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Super Giant");
+        }
+        if(cardSelector == 8) {
+            comboMenu.setSelectedItem("Potpots");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Cheesy Bacon");
+        }
+        if(cardSelector == 9) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Solo");
+        }
+        if(cardSelector == 10) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Grande");
+        }
+        if(cardSelector == 11) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Giant");
+        }
+        if(cardSelector == 12) {
+            comboMenu.setSelectedItem("French Fries");
+            //comboSize.setModel(model1);
+            comboSize.setSelectedItem("Super Giant");
+        }
+        if(cardSelector == 13) {
+            cardSelector = 0;
+        }
+        if(cardSelector == 0) {
+            comboSize.setModel(model2);
+        }
     }
 
     private void comboMenuActionPerformed(java.awt.event.ActionEvent evt) {
         if(comboMenu.getSelectedItem().toString().equals("Menu: ")) {
             cardLayout.show(imagePanel, "1");
             comboSize.setModel(model2);
+            cardSelector = 0;
         }
         if(comboMenu.getSelectedItem().toString().equals("Potpots")) {
             cardLayout.show(imagePanel, "2");
             comboSize.setModel(model1);
             comboSize.setSelectedItem("Size: ");
+            cardSelector = 1;
         }
         if(comboMenu.getSelectedItem().toString().equals("French Fries")) {
             cardLayout.show(imagePanel, "3");
             comboSize.setModel(model);
             comboSize.setSelectedItem("Size: ");
+            cardSelector = 2;
         }
         if(comboMenu.getSelectedItem().toString().equals("Hash Browns")) {
             cardLayout.show(imagePanel, "4");
             comboSize.setModel(model2);
+            cardSelector = 3;
         }
         
     }
     private void comboSizeActionPerformed(java.awt.event.ActionEvent evt) {
         if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Size: ")) {
             cardLayout.show(imagePanel, "2");
+            cardSelector = 1;
         }
         if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Solo")) {
             cardLayout.show(imagePanel, "5");
+            cardSelector = 4;
         }
         if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Grande")) {
             cardLayout.show(imagePanel, "6");
+            cardSelector = 5;
         }
         if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Giant")) {
             cardLayout.show(imagePanel, "7");
+            cardSelector = 6;
         }
         if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Super Giant")) {
             cardLayout.show(imagePanel, "8");
+            cardSelector = 7;
         }
         if(comboMenu.getSelectedItem().toString().equals("Potpots") && comboSize.getSelectedItem().toString().equals("Cheesy Bacon")) {
             cardLayout.show(imagePanel, "9");
+            cardSelector = 8;
         }
         //FRENCH FRIES!!!
         if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Size: ")) {
             cardLayout.show(imagePanel, "3");
+            cardSelector = 2;
         }
         if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Solo")) {
             cardLayout.show(imagePanel, "10");
+            cardSelector = 9;
         }
         if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Grande")) {
             cardLayout.show(imagePanel, "11");
+            cardSelector = 10;
         }
         if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Giant")) {
             cardLayout.show(imagePanel, "12");
+            cardSelector = 11;
         }
         if(comboMenu.getSelectedItem().toString().equals("French Fries") && comboSize.getSelectedItem().toString().equals("Super Giant")) {
             cardLayout.show(imagePanel, "13");
+            cardSelector = 12;
         }
     }                 
 
@@ -357,5 +511,6 @@ public class OrderFrame_Manual_REVISED extends javax.swing.JFrame {
     private javax.swing.DefaultComboBoxModel<String> model;
     private javax.swing.DefaultComboBoxModel<String> model1;
     private javax.swing.DefaultComboBoxModel<String> model2;
+    private int cardSelector;
     // End of variables declaration                   
 }
